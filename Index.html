@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro - Tuma Sathi</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: white; margin: 0; padding: 0; display: flex; flex-direction: column; height: 100vh; }
+        .header { background-color: #1f1f1f; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; border-bottom: 1px solid #333; }
+        .chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 10px 15px; border-radius: 15px; max-width: 75%; }
+        .bot { background-color: #333; align-self: flex-start; }
+        .user { background-color: #007bff; align-self: flex-end; }
+        .input-area { display: flex; padding: 10px; background-color: #1f1f1f; }
+        input { flex: 1; padding: 10px; border: none; border-radius: 5px; outline: none; background: #333; color: white; margin-right: 10px; }
+        button { padding: 10px 20px; border: none; background-color: #007bff; color: white; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="header">Bro 🤝</div>
+    <div class="chat-box" id="chat-box">
+        <div class="message bot">Bhai, mu "Bro". Breakup pare sabu kasta lagiba normal katha. Kichi katha heba pain chahuncha ki? Mu achi suniba pain.</div>
+    </div>
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Tuma katha lekhantu...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        const replies = [
+            "Bhai, kasta heuchi mu bujhiparuchi. Kintu samaya sabu thik karideba.",
+            "Tume eka naha, mu achi to pakhare. Nijaku kasta dia nahi.",
+            "Jiban re emiti hue bhai. Ebe nija upare au future upare dhyana daba darkar.",
+            "Se katha bhabi bhabi nija deha kharap kara nahi. Tume bahut strong!",
+            "Breakup gote end nuhen, gote nua start. Relax kara tike.",
+            "Mu sunuchi bhai, tu kandei de kichi asubidha nahi, mana halka heijiba."
+        ];
+
+        function sendMessage() {
+            let input = document.getElementById("user-input").value;
+            if (input.trim() === "") return;
+
+            let chatBox = document.getElementById("chat-box");
+            
+            let userDiv = document.createElement("div");
+            userDiv.className = "message user";
+            userDiv.innerText = input;
+            chatBox.appendChild(userDiv);
+
+            document.getElementById("user-input").value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(() => {
+                let botDiv = document.createElement("div");
+                botDiv.className = "message bot";
+                let randomReply = replies[Math.floor(Math.random() * replies.length)];
+                botDiv.innerText = randomReply;
+                chatBox.appendChild(botDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
