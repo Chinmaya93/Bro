@@ -28,7 +28,7 @@
 
     <script>
         // TALA LINE RE "EITHI_TUMA_API_KEY_PAKAO" JAGA RE TUMA COPY KARITHIBA API KEY PASTE KARA (Inverted comma "" bhitare rakhiba)
-        const API_KEY = "EITHI_TUMA_API_KEY_PAKAO"; 
+        const API_KEY = "AQ.Ab8RN6IGGLVfdfsn-ecZF2U7tuqRLRSK_0Q9Key5Pu7qC6P-8Q"; 
 
         async function sendMessage() {
             let inputField = document.getElementById("user-input");
